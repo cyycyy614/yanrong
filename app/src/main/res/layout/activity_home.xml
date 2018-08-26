@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ImageView
+        android:id="@+id/iv_userIconPwd"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:src="@drawable/bg_default"
+        tools:layout_width="match_parent" />
+
+    <ImageView
+        android:id="@+id/openAlerm"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="14dp"
+        android:layout_marginTop="116dp"
+        app:srcCompat="@mipmap/icon_alerm" />
+
+    <ImageView
+        android:id="@+id/openDevice"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/openAlerm"
+        android:layout_centerHorizontal="true"
+        app:srcCompat="@mipmap/icon_device" />
+
+    <ImageView
+        android:id="@+id/openMap"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignTop="@+id/openAlerm"
+        android:layout_marginEnd="12dp"
+        app:srcCompat="@mipmap/icon_map" />
+
+    <ImageView
+        android:id="@+id/openLog"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignStart="@+id/openAlerm"
+        android:layout_marginBottom="219dp"
+        app:srcCompat="@mipmap/icon_log" />
+
+    <ImageView
+        android:id="@+id/imageView5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/openLog"
+        android:layout_centerHorizontal="true"
+        app:srcCompat="@mipmap/icon_un1" />
+
+    <ImageView
+        android:id="@+id/imageView6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/openMap"
+        android:layout_alignTop="@+id/openLog"
+        app:srcCompat="@mipmap/icon_un2" />
+</RelativeLayout>
