@@ -1,6 +1,7 @@
 package com.example.yanrong.yanrong;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
@@ -56,9 +57,8 @@ public class LoginActivity extends AppCompatActivity {
                 return;
             }
             //开始请求
-            Request request = ItheimaHttp.newGetRequest("YanRong/");//apiUrl格式："xxx/xxxxx"
+            Request request = ItheimaHttp.newGetRequest("examples/yanrong/login.php");//apiUrl格式："xxx/xxxxx"
             Map<String,Object> map = new HashMap<>();
-            map.put("cmd","login");
             map.put("pwd",userName);
             map.put("user",userPwd);
             request.putParamsMap(map);
@@ -71,6 +71,15 @@ public class LoginActivity extends AppCompatActivity {
                     if(bean.getRet().equals( "succ")){
                         int handle = bean.getHandle();
                         String username = bean.getUsername();
+
+                        SharedPreferences preferences = getSharedPreferences("login",MODE_PRIVATE);
+                        //获取editor对象
+                        SharedPreferences.Editor editor = preferences.edit();
+                        //存储数据时选用对应类型的方法
+                        editor.putString("handle",handle+"");
+                        editor.putString("username",username);
+                        //提交保存数据
+                        editor.commit();
                         Intent i = new Intent(LoginActivity.this,MainActivity.class);
                         startActivity(i);
                     } else {

@@ -9,6 +9,6 @@ public class MyApplication extends Application {
     public void onCreate() {
         super.onCreate();
 //        ItheimaHttp.init(this, "https://www.oschina.net/");
-        ItheimaHttp.init(this, "http://www.joysw.com:1900/");
+        ItheimaHttp.init(this, "http://jpush.joysw.com/");
     }
 }

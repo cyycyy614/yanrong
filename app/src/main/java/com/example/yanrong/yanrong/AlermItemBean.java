@@ -3,166 +3,136 @@ package com.example.yanrong.yanrong;
 public class AlermItemBean {
 
     /**
-     * id : null
-     * fqid : 00:A1:17:11:09:11-01
-     * fqname : hrc-01
-     * fqtype : 鑴夊啿鐢靛瓙鍥存爮
-     * mapid : 225
-     * DotX : 0.7049
-     * DotY : 0.2321
-     * LineX : 0
-     * LineY : 0
-     * LineX2 : 0
-     * LineY2 : 0
-     * Linewidth : 0
-     * DotType : 1
-     * Status : 0
-     * circularwidth : 23
-     * lastmodify : null
+     * ID : 9
+     * mapName : w
+     * FQName : w
+     * EventType : 1
+     * EventTime :
+     * FQType : 1
+     * ConfirmType : 1
+     * ConfirmTime :
+     * ConfirmMessage :
+     * OpUser :
+     * videoSum : 1
+     * Alarmid : 1
+     * FQID : 1
      */
 
-    private Object id;
-    private String fqid;
-    private String fqname;
-    private String fqtype;
-    private int mapid;
-    private double DotX;
-    private double DotY;
-    private int LineX;
-    private int LineY;
-    private int LineX2;
-    private int LineY2;
-    private int Linewidth;
-    private int DotType;
-    private int Status;
-    private int circularwidth;
-    private Object lastmodify;
+    private int ID;
+    private String mapName;
+    private String FQName;
+    private int EventType;
+    private String EventTime;
+    private int FQType;
+    private int ConfirmType;
+    private String ConfirmTime;
+    private String ConfirmMessage;
+    private String OpUser;
+    private int videoSum;
+    private int Alarmid;
+    private int FQID;
 
-    public Object getId() {
-        return id;
+    public int getID() {
+        return ID;
     }
 
-    public void setId(Object id) {
-        this.id = id;
+    public void setID(int ID) {
+        this.ID = ID;
     }
 
-    public String getFqid() {
-        return fqid;
+    public String getMapName() {
+        return mapName;
     }
 
-    public void setFqid(String fqid) {
-        this.fqid = fqid;
+    public void setMapName(String mapName) {
+        this.mapName = mapName;
     }
 
-    public String getFqname() {
-        return fqname;
+    public String getFQName() {
+        return FQName;
     }
 
-    public void setFqname(String fqname) {
-        this.fqname = fqname;
+    public void setFQName(String FQName) {
+        this.FQName = FQName;
     }
 
-    public String getFqtype() {
-        return fqtype;
+    public int getEventType() {
+        return EventType;
     }
 
-    public void setFqtype(String fqtype) {
-        this.fqtype = fqtype;
+    public void setEventType(int EventType) {
+        this.EventType = EventType;
     }
 
-    public int getMapid() {
-        return mapid;
+    public String getEventTime() {
+        return EventTime;
     }
 
-    public void setMapid(int mapid) {
-        this.mapid = mapid;
+    public void setEventTime(String EventTime) {
+        this.EventTime = EventTime;
     }
 
-    public double getDotX() {
-        return DotX;
+    public int getFQType() {
+        return FQType;
     }
 
-    public void setDotX(double DotX) {
-        this.DotX = DotX;
+    public void setFQType(int FQType) {
+        this.FQType = FQType;
     }
 
-    public double getDotY() {
-        return DotY;
+    public int getConfirmType() {
+        return ConfirmType;
     }
 
-    public void setDotY(double DotY) {
-        this.DotY = DotY;
+    public void setConfirmType(int ConfirmType) {
+        this.ConfirmType = ConfirmType;
     }
 
-    public int getLineX() {
-        return LineX;
+    public String getConfirmTime() {
+        return ConfirmTime;
     }
 
-    public void setLineX(int LineX) {
-        this.LineX = LineX;
+    public void setConfirmTime(String ConfirmTime) {
+        this.ConfirmTime = ConfirmTime;
     }
 
-    public int getLineY() {
-        return LineY;
+    public String getConfirmMessage() {
+        return ConfirmMessage;
     }
 
-    public void setLineY(int LineY) {
-        this.LineY = LineY;
+    public void setConfirmMessage(String ConfirmMessage) {
+        this.ConfirmMessage = ConfirmMessage;
     }
 
-    public int getLineX2() {
-        return LineX2;
+    public String getOpUser() {
+        return OpUser;
     }
 
-    public void setLineX2(int LineX2) {
-        this.LineX2 = LineX2;
+    public void setOpUser(String OpUser) {
+        this.OpUser = OpUser;
     }
 
-    public int getLineY2() {
-        return LineY2;
+    public int getVideoSum() {
+        return videoSum;
     }
 
-    public void setLineY2(int LineY2) {
-        this.LineY2 = LineY2;
+    public void setVideoSum(int videoSum) {
+        this.videoSum = videoSum;
     }
 
-    public int getLinewidth() {
-        return Linewidth;
+    public int getAlarmid() {
+        return Alarmid;
     }
 
-    public void setLinewidth(int Linewidth) {
-        this.Linewidth = Linewidth;
+    public void setAlarmid(int Alarmid) {
+        this.Alarmid = Alarmid;
     }
 
-    public int getDotType() {
-        return DotType;
+    public int getFQID() {
+        return FQID;
     }
 
-    public void setDotType(int DotType) {
-        this.DotType = DotType;
-    }
-
-    public int getStatus() {
-        return Status;
-    }
-
-    public void setStatus(int Status) {
-        this.Status = Status;
-    }
-
-    public int getCircularwidth() {
-        return circularwidth;
-    }
-
-    public void setCircularwidth(int circularwidth) {
-        this.circularwidth = circularwidth;
-    }
-
-    public Object getLastmodify() {
-        return lastmodify;
-    }
-
-    public void setLastmodify(Object lastmodify) {
-        this.lastmodify = lastmodify;
+    public void setFQID(int FQID) {
+        this.FQID = FQID;
     }
 }

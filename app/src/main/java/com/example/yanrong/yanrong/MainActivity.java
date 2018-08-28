@@ -1,5 +1,6 @@
 package com.example.yanrong.yanrong;
 
+import android.content.SharedPreferences;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -30,13 +31,17 @@ public class MainActivity extends AppCompatActivity {
     SwipeRefreshLayout myswipeRefreshLayout;
     @BindView(R.id.recycler_view)
     ItheimaRecyclerView myrecyclerView;
+    String handle ;
+    Integer pageIndex = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
-        pullToLoadMoreRecyclerView = new PullToLoadMoreRecyclerView<BannerBean>(myswipeRefreshLayout, myrecyclerView, MyRecyclerViewHolder.class) {
+        SharedPreferences preferences = getSharedPreferences("login",MODE_PRIVATE);
+        handle = preferences.getString("handle","");
+        pullToLoadMoreRecyclerView = new PullToLoadMoreRecyclerView<AlermBean>(myswipeRefreshLayout, myrecyclerView, MyRecyclerViewHolder.class) {
             @Override
             public int getItemResId() {
                 //recylerview item资源id
@@ -46,7 +51,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public String getApi() {
                 //接口
-                return "YanRong/?cmd=GetFqInfo&handle=1090027314";
+                return "examples/yanrong/GetAlarmlog.php?startrow="+ pageIndex +"&handle="+handle;
             }
 //            //是否加载更多的数据，根据业务逻辑自行判断，true表示有更多的数据，false表示没有更多的数据，如果不需要监听可以不重写该方法
 //            @Override
@@ -57,67 +62,65 @@ public class MainActivity extends AppCompatActivity {
 //            }
         };
 
-//        pullToLoadMoreRecyclerView.requestData();
+        pullToLoadMoreRecyclerView.requestData();
         //开始请求
-        Request request = ItheimaHttp.newGetRequest("YanRong/?cmd=GetFqInfo&handle=1090027314");//apiUrl格式："xxx/xxxxx"
-        Call call = ItheimaHttp.send(request, new HttpResponseListener<AlermBean>() {
-
-            @Override
-            public void onResponse(AlermBean bean, Headers headers) {
-                System.out.println("print data");
-                System.out.println("print data -- " +bean);
-                List<String> result = bean.getResult();
-                int size = result.size();
-                final BaseRecyclerAdapter[] adapter = new BaseRecyclerAdapter[size];
-                for (int i = 0; i < size; i++) {
-                    final int index = i;
-                    String url =  result.get(index);
-                    Request request = ItheimaHttp.newGetRequest(url);//apiUrl格式："xxx/xxxxx"
-                    Call call = ItheimaHttp.send(request, new HttpResponseListener<String>() {
-
-                        @Override
-                        public void onResponse(String s, Headers headers) {
-                            System.out.println("print data");
-                            System.out.println("print data -- " +s);
-                            List<AlermItemBean> list  = new ArrayList();
-
-                            adapter[index] = new BaseRecyclerAdapter(myrecyclerView
-                                    , MyRecyclerViewHolder.class
-                                    , R.layout.items_news
-                                    , list);
-                        }
-
-
-                        /**
-                         * 可以不重写失败回调
-                         * @param call
-                         * @param e
-                         */
-                        @Override
-                        public void onFailure(Call<ResponseBody> call, Throwable e) {
-                            System.out.println("print data fail");
-                        }
-                    });
-                    adapter[0] = new BaseRecyclerAdapter(myrecyclerView
-                            , MyRecyclerViewHolder.class
-                            , R.layout.items_news
-                            , bean.getItemDatas());
-                }
-            }
-
-            /**
-             * 可以不重写失败回调
-             * @param call
-             * @param e
-             */
-            @Override
-            public void onFailure(Call<ResponseBody> call, Throwable e) {
-                System.out.println("print data fail");
-            }
-        });
+//        Request request = ItheimaHttp.newGetRequest("YanRong/?cmd=GetAlarmlog&startrow=0&&handle="+handle);//apiUrl格式："xxx/xxxxx"
+//        Call call = ItheimaHttp.send(request, new HttpResponseListener<AlermBean>() {
+//
+//            @Override
+//            public void onResponse(AlermBean bean, Headers headers) {
+//                System.out.println("print data");
+//                System.out.println("print data -- " +bean);
+//                String result = bean.getResult();
+//
+//                final BaseRecyclerAdapter[] adapter = new BaseRecyclerAdapter[1];
+//                {
+//                    Request request = ItheimaHttp.newGetRequest(result);//apiUrl格式："xxx/xxxxx"
+//                    Call call = ItheimaHttp.send(request, new HttpResponseListener<String>() {
+//
+//                        @Override
+//                        public void onResponse(String s, Headers headers) {
+//                            System.out.println("print data");
+//                            System.out.println("print log data -- " +s);
+//                            List<FqItemBean> list  = new ArrayList();
+//
+//                            adapter[0] = new BaseRecyclerAdapter(myrecyclerView
+//                                    , MyRecyclerViewHolder.class
+//                                    , R.layout.items_news
+//                                    , list);
+//                        }
+//
+//
+//                        /**
+//                         * 可以不重写失败回调
+//                         * @param call
+//                         * @param e
+//                         */
+//                        @Override
+//                        public void onFailure(Call<ResponseBody> call, Throwable e) {
+//                            System.out.println("print data fail");
+//                        }
+//                    });
+//                    adapter[0] = new BaseRecyclerAdapter(myrecyclerView
+//                            , MyRecyclerViewHolder.class
+//                            , R.layout.items_news
+//                            , bean.getItemDatas());
+//                }
+//            }
+//
+//            /**
+//             * 可以不重写失败回调
+//             * @param call
+//             * @param e
+//             */
+//            @Override
+//            public void onFailure(Call<ResponseBody> call, Throwable e) {
+//                System.out.println("print data fail");
+//            }
+//        });
     }
 
-    public static class MyRecyclerViewHolder extends BaseRecyclerViewHolder<BannerBean.ResultBean.ItemsBean> {
+    public static class MyRecyclerViewHolder extends BaseRecyclerViewHolder<AlermBean.ResultBean.ItemsBean> {
         //换成你布局文件中的id
         @BindView(R.id.tv_title)
         TextView tvTitle;
@@ -131,7 +134,7 @@ public class MainActivity extends AppCompatActivity {
          */
         @Override
         public void onBindRealData() {
-            tvTitle.setText(mData.getName());
+            tvTitle.setText(mData.getID());
         }
 
 
