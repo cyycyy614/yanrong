@@ -4,4 +4,10 @@
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
     <color name="colorCursor">#b8bfd2</color>
+    <color name="colorBg">#f9f9fb</color>
+    <color name="colorBorder">#dddddd</color>
+    <color name="colorAlermType">#2abe8c</color>
+
+    <color name="black">#dd000000</color>
+    <color name="white">#ffffff</color>
 </resources>

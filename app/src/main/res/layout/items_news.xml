@@ -5,12 +5,52 @@
     android:id="@+id/linearLayout"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:orientation="vertical">
+    android:layout_margin="10dp"
+    android:orientation="horizontal">
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:background="@drawable/rectangel_item"
+        android:orientation="vertical"
+        android:padding="10dp"
+        android:weightSum="1">
+
+        <TextView
+            android:id="@+id/tv_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:drawableLeft="@mipmap/icon_list_1"
+            android:drawablePadding="10dp"
+            android:text="@string/app_name"
+            android:textColor="@android:color/background_dark"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            tools:text="ttt" />
+
+        <TextView
+            android:id="@+id/tv_date"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="@string/app_name"
+            android:textSize="12sp"
+            tools:text="2016-08-8 10:30:10" />
+
+    </LinearLayout>
 
     <TextView
-        android:id="@+id/tv_title"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:id="@+id/tv_handle"
+        android:layout_width="30dp"
+        android:layout_height="match_parent"
+        android:layout_marginLeft="-5dp"
+        android:background="@color/colorAlermType"
+        android:ems="1"
+        android:paddingLeft="10dp"
+        android:paddingTop="10dp"
         android:text="@string/app_name"
-        tools:text="ttt" />
+        android:textColor="#ffffff"
+        android:textSize="12sp"
+        tools:text="已处置" />
 </LinearLayout>

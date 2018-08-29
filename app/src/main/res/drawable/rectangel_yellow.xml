@@ -1,4 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
-<selector xmlns:android="http://schemas.android.com/apk/res/android">
+<shape xmlns:android="http://schemas.android.com/apk/res/android" >
 
-</selector>
+    <!-- 填充颜色 -->
+    <solid android:color="#f99519" />
+
+    <!-- 圆角度数 -->
+    <corners
+        android:bottomLeftRadius="4dp"
+        android:bottomRightRadius="4dp"
+        android:topLeftRadius="4dp"
+        android:topRightRadius="4dp" />
+    <!-- 边框 -->
+    <stroke
+        android:width="2dp"
+        android:color="#f99519" />
+
+</shape>

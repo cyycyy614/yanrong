@@ -56,35 +56,38 @@ public class LoginActivity extends AppCompatActivity {
                 Toast.makeText(this, "用户名或密码不能为空", Toast.LENGTH_SHORT).show();
                 return;
             }
+
+
             //开始请求
-            Request request = ItheimaHttp.newGetRequest("examples/yanrong/login.php");//apiUrl格式："xxx/xxxxx"
+            Request request = ItheimaHttp.newGetRequest("action/apiv2/banner?catalog=1");//apiUrl格式："xxx/xxxxx"
+//            Request request = ItheimaHttp.newGetRequest("examples/yanrong/login.php");//apiUrl格式："xxx/xxxxx"
             Map<String,Object> map = new HashMap<>();
             map.put("pwd",userName);
             map.put("user",userPwd);
             request.putParamsMap(map);
-            Call call = ItheimaHttp.send(request, new HttpResponseListener<LoginBean>() {
+            Call call = ItheimaHttp.send(request, new HttpResponseListener<Object>() {
 
                 @Override
-                public void onResponse(LoginBean bean, Headers headers) {
+                public void onResponse(Object bean, Headers headers) {
                     System.out.println("print data");
                     System.out.println("print data -- " +bean);
-                    if(bean.getRet().equals( "succ")){
-                        int handle = bean.getHandle();
-                        String username = bean.getUsername();
-
-                        SharedPreferences preferences = getSharedPreferences("login",MODE_PRIVATE);
-                        //获取editor对象
-                        SharedPreferences.Editor editor = preferences.edit();
-                        //存储数据时选用对应类型的方法
-                        editor.putString("handle",handle+"");
-                        editor.putString("username",username);
-                        //提交保存数据
-                        editor.commit();
-                        Intent i = new Intent(LoginActivity.this,MainActivity.class);
-                        startActivity(i);
-                    } else {
-                        Toast.makeText(LoginActivity.this, "登录失败了", Toast.LENGTH_SHORT).show();
-                    }
+//                    if(bean.getRet().equals( "succ")){
+//                        int handle = bean.getHandle();
+//                        String username = bean.getUsername();
+//
+//                        SharedPreferences preferences = getSharedPreferences("login",MODE_PRIVATE);
+//                        //获取editor对象
+//                        SharedPreferences.Editor editor = preferences.edit();
+//                        //存储数据时选用对应类型的方法
+//                        editor.putString("handle",handle+"");
+//                        editor.putString("username",username);
+//                        //提交保存数据
+//                        editor.commit();
+//                        Intent i = new Intent(LoginActivity.this,MainActivity.class);
+//                        startActivity(i);
+//                    } else {
+//                        Toast.makeText(LoginActivity.this, "登录失败了", Toast.LENGTH_SHORT).show();
+//                    }
                 }
 
                 /**
@@ -98,6 +101,5 @@ public class LoginActivity extends AppCompatActivity {
                 }
             });
         }
-
     }
 }

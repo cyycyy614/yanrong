@@ -4,6 +4,7 @@ import android.content.SharedPreferences;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.RecyclerView;
 import android.view.ViewGroup;
 import android.widget.*;
 
@@ -12,6 +13,7 @@ import com.itheima.retrofitutils.Request;
 import com.itheima.retrofitutils.listener.HttpResponseListener;
 
 import org.itheima.recycler.adapter.BaseRecyclerAdapter;
+import org.itheima.recycler.header.RecyclerViewHeader;
 import org.itheima.recycler.viewholder.BaseRecyclerViewHolder;
 import org.itheima.recycler.widget.ItheimaRecyclerView;
 import org.itheima.recycler.widget.PullToLoadMoreRecyclerView;
@@ -29,8 +31,7 @@ public class MainActivity extends AppCompatActivity {
     PullToLoadMoreRecyclerView pullToLoadMoreRecyclerView;
     @BindView(R.id.swipe_refresh_layout)
     SwipeRefreshLayout myswipeRefreshLayout;
-    @BindView(R.id.recycler_view)
-    ItheimaRecyclerView myrecyclerView;
+    private ItheimaRecyclerView myrecyclerView;
     String handle ;
     Integer pageIndex = 0;
 
@@ -39,6 +40,11 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
+
+        RecyclerViewHeader header = (RecyclerViewHeader) findViewById(R.id.recycler_header);
+        myrecyclerView= (ItheimaRecyclerView) findViewById(R.id.recycler_view);
+        header.attachTo(myrecyclerView);
+
         SharedPreferences preferences = getSharedPreferences("login",MODE_PRIVATE);
         handle = preferences.getString("handle","");
         pullToLoadMoreRecyclerView = new PullToLoadMoreRecyclerView<AlermBean>(myswipeRefreshLayout, myrecyclerView, MyRecyclerViewHolder.class) {

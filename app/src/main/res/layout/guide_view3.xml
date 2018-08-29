@@ -6,17 +6,18 @@
     <ImageView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:contentDescription="@string/entry"
         android:scaleType="centerCrop"
         android:src="@mipmap/guide_img3" />
+
     <Button
         android:id="@+id/btn_enter"
-        android:layout_width="100dp"
-        android:layout_height="26dp"
+        android:layout_width="200dp"
+        android:layout_height="30dp"
         android:layout_gravity="bottom|center_horizontal"
-        android:layout_marginBottom="75dp"
-        android:background="@drawable/button_shape"
-        android:text="@string/entry"
-        android:textColor="@color/white"
+        android:layout_marginBottom="0dp"
+        android:background="@android:color/transparent"
+        android:contentDescription="@string/entry"
         android:textSize="18sp"
         android:visibility="visible" />
 

@@ -8,7 +8,7 @@ public class MyApplication extends Application {
     @Override
     public void onCreate() {
         super.onCreate();
-//        ItheimaHttp.init(this, "https://www.oschina.net/");
-        ItheimaHttp.init(this, "http://jpush.joysw.com/");
+        ItheimaHttp.init(this, "https://www.oschina.net/");
+//        ItheimaHttp.init(this, "http://jpush.joysw.com/");
     }
 }
