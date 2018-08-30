@@ -1,168 +1,146 @@
 package com.example.yanrong.yanrong;
 
-public class FqItemBean {
+import org.itheima.recycler.bean.BasePageBean;
+
+import java.util.List;
+
+public class FqItemBean extends BasePageBean<FqItemBean.ResultBean.ItemsBean>{
+
 
     /**
-     * id : null
-     * fqid : 00:A1:17:11:09:11-01
-     * fqname : hrc-01
-     * fqtype : 鑴夊啿鐢靛瓙鍥存爮
-     * mapid : 225
-     * DotX : 0.7049
-     * DotY : 0.2321
-     * LineX : 0
-     * LineY : 0
-     * LineX2 : 0
-     * LineY2 : 0
-     * Linewidth : 0
-     * DotType : 1
-     * Status : 0
-     * circularwidth : 23
-     * lastmodify : null
+     * success : 1
+     * result : {"items":[{"id":1,"fqid":"hrc-01","mapid":"书库东侧","fqname":"异常撤防嗖嗖嗖","Status":"单线触摸报警","fqtype":"张力","circularwidth":0,"lastmodify":39},{"id":2,"fqid":"hrc-01","mapid":"书库东侧","fqname":"异常撤防嗖嗖嗖","Status":"拉紧报警","fqtype":"脉冲","circularwidth":0,"lastmodify":39},{"id":3,"fqid":"hrc-01","mapid":"书库东侧","fqname":"异常撤防嗖嗖嗖","Status":"攀爬报警","fqtype":"张力","circularwidth":0,"lastmodify":39},{"id":4,"fqid":"hrc-01","mapid":"书库东侧","fqname":"异常撤防嗖嗖嗖","Status":"松弛报警","fqtype":"张力","circularwidth":0,"lastmodify":39},{"id":5,"fqid":"hrc-01","mapid":"书库东侧","fqname":"异常撤防嗖嗖嗖","Status":"单线触摸报警","fqtype":"脉冲","circularwidth":0,"lastmodify":39},{"id":6,"fqid":"hrc-01","mapid":"书库东侧","fqname":"异常撤防嗖嗖嗖","Status":"单线触摸报警","fqtype":"脉冲","circularwidth":0,"lastmodify":39},{"id":7,"fqid":"hrc-01","mapid":"书库东侧","fqname":"异常撤防嗖嗖嗖","Status":"拉紧报警","fqtype":"脉冲","circularwidth":0,"lastmodify":39},{"id":8,"fqid":"hrc-01","mapid":"书库东侧","fqname":"异常撤防嗖嗖嗖","Status":"攀爬报警","fqtype":"张力","circularwidth":0,"lastmodify":39},{"id":9,"fqid":"hrc-01","mapid":"书库东侧","fqname":"异常撤防嗖嗖嗖","Status":"松弛报警","fqtype":"脉冲","circularwidth":0,"lastmodify":39},{"id":10,"fqid":"hrc-01","mapid":"书库东侧","fqname":"异常撤防嗖嗖嗖","Status":"拉紧报警","fqtype":"脉冲","circularwidth":0,"lastmodify":39},{"id":11,"fqid":"hrc-01","mapid":"书库东侧","fqname":"异常撤防嗖嗖嗖","Status":"短路报警","fqtype":"张力","circularwidth":0,"lastmodify":39}]}
+     * msg : 获取数据成功！
      */
 
-    private Object id;
-    private String fqid;
-    private String fqname;
-    private String fqtype;
-    private int mapid;
-    private double DotX;
-    private double DotY;
-    private int LineX;
-    private int LineY;
-    private int LineX2;
-    private int LineY2;
-    private int Linewidth;
-    private int DotType;
-    private int Status;
-    private int circularwidth;
-    private Object lastmodify;
+    private int success;
+    private ResultBean result;
+    private String msg;
 
-    public Object getId() {
-        return id;
+    public int getSuccess() {
+        return success;
     }
 
-    public void setId(Object id) {
-        this.id = id;
+    public void setSuccess(int success) {
+        this.success = success;
     }
 
-    public String getFqid() {
-        return fqid;
+    public ResultBean getResult() {
+        return result;
     }
 
-    public void setFqid(String fqid) {
-        this.fqid = fqid;
+    public void setResult(ResultBean result) {
+        this.result = result;
     }
 
-    public String getFqname() {
-        return fqname;
+    public String getMsg() {
+        return msg;
     }
 
-    public void setFqname(String fqname) {
-        this.fqname = fqname;
+    public void setMsg(String msg) {
+        this.msg = msg;
     }
 
-    public String getFqtype() {
-        return fqtype;
+    @Override
+    public List<ResultBean.ItemsBean> getItemDatas() {
+        return result.items;
     }
 
-    public void setFqtype(String fqtype) {
-        this.fqtype = fqtype;
-    }
+    public static class ResultBean {
+        private List<ItemsBean> items;
 
-    public int getMapid() {
-        return mapid;
-    }
+        public List<ItemsBean> getItems() {
+            return items;
+        }
 
-    public void setMapid(int mapid) {
-        this.mapid = mapid;
-    }
+        public void setItems(List<ItemsBean> items) {
+            this.items = items;
+        }
 
-    public double getDotX() {
-        return DotX;
-    }
+        public static class ItemsBean {
+            /**
+             * id : 1
+             * fqid : hrc-01
+             * mapid : 书库东侧
+             * fqname : 异常撤防嗖嗖嗖
+             * Status : 单线触摸报警
+             * fqtype : 张力
+             * circularwidth : 0
+             * lastmodify : 39
+             */
 
-    public void setDotX(double DotX) {
-        this.DotX = DotX;
-    }
+            private int id;
+            private String fqid;
+            private String mapid;
+            private String fqname;
+            private String Status;
+            private String fqtype;
+            private int circularwidth;
+            private int lastmodify;
 
-    public double getDotY() {
-        return DotY;
-    }
+            public int getId() {
+                return id;
+            }
 
-    public void setDotY(double DotY) {
-        this.DotY = DotY;
-    }
+            public void setId(int id) {
+                this.id = id;
+            }
 
-    public int getLineX() {
-        return LineX;
-    }
+            public String getFqid() {
+                return fqid;
+            }
 
-    public void setLineX(int LineX) {
-        this.LineX = LineX;
-    }
+            public void setFqid(String fqid) {
+                this.fqid = fqid;
+            }
 
-    public int getLineY() {
-        return LineY;
-    }
+            public String getMapid() {
+                return mapid;
+            }
 
-    public void setLineY(int LineY) {
-        this.LineY = LineY;
-    }
+            public void setMapid(String mapid) {
+                this.mapid = mapid;
+            }
 
-    public int getLineX2() {
-        return LineX2;
-    }
+            public String getFqname() {
+                return fqname;
+            }
 
-    public void setLineX2(int LineX2) {
-        this.LineX2 = LineX2;
-    }
+            public void setFqname(String fqname) {
+                this.fqname = fqname;
+            }
 
-    public int getLineY2() {
-        return LineY2;
-    }
+            public String getStatus() {
+                return Status;
+            }
 
-    public void setLineY2(int LineY2) {
-        this.LineY2 = LineY2;
-    }
+            public void setStatus(String Status) {
+                this.Status = Status;
+            }
 
-    public int getLinewidth() {
-        return Linewidth;
-    }
+            public String getFqtype() {
+                return fqtype;
+            }
 
-    public void setLinewidth(int Linewidth) {
-        this.Linewidth = Linewidth;
-    }
+            public void setFqtype(String fqtype) {
+                this.fqtype = fqtype;
+            }
 
-    public int getDotType() {
-        return DotType;
-    }
+            public int getCircularwidth() {
+                return circularwidth;
+            }
 
-    public void setDotType(int DotType) {
-        this.DotType = DotType;
-    }
+            public void setCircularwidth(int circularwidth) {
+                this.circularwidth = circularwidth;
+            }
 
-    public int getStatus() {
-        return Status;
-    }
+            public int getLastmodify() {
+                return lastmodify;
+            }
 
-    public void setStatus(int Status) {
-        this.Status = Status;
-    }
-
-    public int getCircularwidth() {
-        return circularwidth;
-    }
-
-    public void setCircularwidth(int circularwidth) {
-        this.circularwidth = circularwidth;
-    }
-
-    public Object getLastmodify() {
-        return lastmodify;
-    }
-
-    public void setLastmodify(Object lastmodify) {
-        this.lastmodify = lastmodify;
+            public void setLastmodify(int lastmodify) {
+                this.lastmodify = lastmodify;
+            }
+        }
     }
 }

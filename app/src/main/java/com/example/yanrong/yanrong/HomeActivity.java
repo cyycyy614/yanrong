@@ -2,10 +2,14 @@ package com.example.yanrong.yanrong;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.annotation.IdRes;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.*;
+
+import com.roughike.bottombar.BottomBar;
+import com.roughike.bottombar.OnTabSelectListener;
 
 public class HomeActivity extends AppCompatActivity {
     private ImageView openalerm;
@@ -26,6 +30,36 @@ public class HomeActivity extends AppCompatActivity {
         opendevice.setOnClickListener(mListener);
         openmap.setOnClickListener(mListener);
         openlog.setOnClickListener(mListener);
+
+        BottomBar bottomBar = (BottomBar) findViewById(R.id.bottomBar);
+        bottomBar.selectTabAtPosition(0);
+        bottomBar.setOnTabSelectListener(new OnTabSelectListener() {
+            @Override
+            public void onTabSelected(@IdRes int tabId) {
+//                if (tabId == R.id.tab_home) {
+//                    // The tab with id R.id.tab_favorites was selected,
+//                    // change your content accordingly.
+//                    Intent i = new Intent(HomeActivity.this,MainActivity.class);
+//                    startActivity(i);
+//                } else
+                if (tabId == R.id.tab_maps) {
+                    // The tab with id R.id.tab_favorites was selected,
+                    // change your content accordingly.
+                    Intent i = new Intent(HomeActivity.this,MainActivity.class);
+                    startActivity(i);
+                } else if (tabId == R.id.tab_alerm) {
+                    // The tab with id R.id.tab_favorites was selected,
+                    // change your content accordingly.
+                    Intent i = new Intent(HomeActivity.this,MainActivity.class);
+                    startActivity(i);
+                } else if (tabId == R.id.tab_user) {
+                    // The tab with id R.id.tab_favorites was selected,
+                    // change your content accordingly.
+                    Intent i = new Intent(HomeActivity.this,UserActivity.class);
+                    startActivity(i);
+                }
+            }
+        });
     }
 
     View.OnClickListener mListener = new View.OnClickListener() {
@@ -38,7 +72,7 @@ public class HomeActivity extends AppCompatActivity {
                     startActivity(i);
                     break;
                 case R.id.openDevice:
-                    i = new Intent(HomeActivity.this,MainActivity.class);
+                    i = new Intent(HomeActivity.this,FqActivity.class);
                     startActivity(i);
                     break;
                 case R.id.openMap:

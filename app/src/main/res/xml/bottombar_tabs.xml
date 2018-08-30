@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<tabs  xmlns:android="http://schemas.android.com/apk/res/android">
+    <tab
+        id="@+id/tab_home"
+        icon="@mipmap/icon_home"
+        title="首页"
+        barColorWhenSelected="#ffffff" />
+    <tab
+        id="@+id/tab_maps"
+        icon="@mipmap/icon_maps"
+        title="地图"
+        barColorWhenSelected="#ffffff" />
+    <tab
+        id="@+id/tab_alerm"
+        icon="@mipmap/icon_alermlist"
+        title="报警"
+        barColorWhenSelected="#ffffff" />
+    <tab
+        id="@+id/tab_user"
+        icon="@mipmap/icon_user"
+        title="我的"
+        barColorWhenSelected="#ffffff" />
+</tabs>

@@ -1,4 +1,16 @@
 <resources>
-    <string name="app_name">yanrong</string>
+    <string name="app_name">炎荣报警APP</string>
+    <string name="alermtitle">炎荣报警APP炎荣报警APP炎荣报警APP炎荣报警APP炎荣报警APP炎荣报警APP</string>
     <string name="entry">立即体验</string>
+    <string name="alerm_head">最新报警</string>
+    <string name="alerm_detail_mapname">设备位置</string>
+    <string name="alerm_detail_fqname">设备名称</string>
+    <string name="alerm_detail_eventtype">报警类型</string>
+    <string name="alerm_fq_1">序号</string>
+    <string name="alerm_fq_2">位置</string>
+    <string name="alerm_fq_3">防区</string>
+    <string name="alerm_fq_4">状态</string>
+    <string name="username">姓名：</string>
+    <string name="phone">电话：</string>
+    <string name="logout">注销退出</string>
 </resources>
