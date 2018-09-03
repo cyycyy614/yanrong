@@ -3,12 +3,22 @@ apply plugin: 'com.android.application'
 android {
     compileSdkVersion 28
     defaultConfig {
-        applicationId "com.example.yanrong.yanrong"
+        applicationId "com.example.luanshiwei.yanrong"
         minSdkVersion 21
         targetSdkVersion 28
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        ndk {
+            //选择要添加的对应cpu类型的.so库。
+            abiFilters 'armeabi', 'armeabi-v7a', 'armeabi-v8a'
+            // 还可以添加 'x86', 'x86_64', 'mips', 'mips64'
+        }
+        manifestPlaceholders = [
+                JPUSH_PKGNAME : "com.example.luanshiwei.yanrong",
+                JPUSH_APPKEY : " 65d9b68a8207e159f2ef0232", //JPush上注册的包名对应的appkey.
+                JPUSH_CHANNEL : "developer-default", //暂时填写默认值即可.
+        ]
     }
     buildTypes {
         release {
@@ -16,10 +26,15 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+    sourceSets {
+        main {
+            jniLibs.srcDirs = ['libs']
+        }
+    }
 }
 
 dependencies {
-    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
     //noinspection GradleCompatible
     implementation 'com.android.support:appcompat-v7:26.+'
     implementation 'com.android.support.constraint:constraint-layout:1.0.2'
@@ -38,4 +53,7 @@ dependencies {
     implementation 'com.github.open-android:OkHttp3Utils:0.0.4'
     implementation 'com.github.open-android:FragmentTabhostUtils:0.5.0'
     implementation 'com.roughike:bottom-bar:2.0.2'
+    implementation 'cn.jiguang.sdk:jpush:3.1.5'
+    implementation 'cn.jiguang.sdk:jcore:1.2.3'
+    implementation files('libs/BaiduLBS_Android.jar')
 }

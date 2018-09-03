@@ -3,13 +3,15 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:gravity="top">
 
     <ImageView
         android:id="@+id/iv_userIconPwd"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:contentDescription="@android:string/unknownName"
+        android:scaleType="centerCrop"
         android:src="@drawable/bg_default"
         tools:layout_width="match_parent" />
 
@@ -35,29 +37,33 @@
 
     <ImageView
         android:id="@+id/openMap"
-        android:layout_width="wrap_content"
+        android:layout_width="109dp"
         android:layout_height="wrap_content"
         android:layout_alignParentEnd="true"
         android:layout_alignTop="@+id/openAlerm"
-        android:layout_marginEnd="12dp"
+        android:layout_marginEnd="10dp"
         android:contentDescription="@android:string/unknownName"
         app:srcCompat="@mipmap/icon_map" />
 
     <ImageView
         android:id="@+id/openLog"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
+        android:layout_width="110dp"
+        android:layout_height="112dp"
+        android:layout_alignParentBottom="false"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
         android:layout_alignStart="@+id/openAlerm"
-        android:layout_marginBottom="219dp"
+        android:layout_marginStart="14dp"
+        android:layout_marginTop="240dp"
         android:contentDescription="@android:string/unknownName"
         app:srcCompat="@mipmap/icon_log" />
 
     <ImageView
         android:id="@+id/imageView5"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="109dp"
+        android:layout_height="112dp"
         android:layout_alignTop="@+id/openLog"
+        android:layout_below="@+id/openDevice"
         android:layout_centerHorizontal="true"
         android:contentDescription="@android:string/unknownName"
         app:srcCompat="@mipmap/icon_un1" />
@@ -65,9 +71,10 @@
     <ImageView
         android:id="@+id/imageView6"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="112dp"
         android:layout_alignStart="@+id/openMap"
         android:layout_alignTop="@+id/openLog"
+        android:layout_below="@+id/openMap"
         android:contentDescription="@android:string/unknownName"
         app:srcCompat="@mipmap/icon_un2" />
 
@@ -76,6 +83,7 @@
         android:layout_width="match_parent"
         android:layout_height="60dp"
         android:layout_alignParentBottom="true"
+        android:layout_alignParentStart="true"
         app:bb_activeTabColor="@color/colorBottomBarActive"
         app:bb_inActiveTabColor="#898c9b"
         app:bb_tabXmlResource="@xml/bottombar_tabs" />
